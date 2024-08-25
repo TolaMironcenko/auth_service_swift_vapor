@@ -14,10 +14,10 @@ final class AppTests: XCTestCase {
         self.app = nil
     }
     
-    func testHelloWorld() async throws {
-        try await self.app.test(.GET, "hello", afterResponse: { res async in
+    func testPostUsers() async throws {
+        try await self.app.test(.POST, "api/users", afterResponse: { res async in
             XCTAssertEqual(res.status, .ok)
-            XCTAssertEqual(res.body.string, "Hello, world!")
+//            XCTAssertEqual(res.body.string, "Hello, world!")
         })
     }
 }
