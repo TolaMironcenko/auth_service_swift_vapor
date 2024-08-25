@@ -17,7 +17,30 @@ final class AppTests: XCTestCase {
     func testPostUsers() async throws {
         try await self.app.test(.POST, "api/users", afterResponse: { res async in
             XCTAssertEqual(res.status, .ok)
-//            XCTAssertEqual(res.body.string, "Hello, world!")
+        })
+    }
+    
+    func testPostRegisterUser() async throws {
+        try await self.app.test(.POST, "api/users/register", afterResponse: { res async in
+            XCTAssertEqual(res.status, .ok)
+        })
+    }
+    
+    func testPostGetToken() async throws {
+        try await self.app.test(.POST, "api/users/token", afterResponse: { res async in
+            XCTAssertEqual(res.status, .ok)
+        })
+    }
+    
+    func testPostChangeUser() async throws {
+        try await self.app.test(.POST, "api/users/change", afterResponse: { res async in
+            XCTAssertEqual(res.status, .ok)
+        })
+    }
+    
+    func testPostCreateUser() async throws {
+        try await self.app.test(.POST, "api/users/create", afterResponse: { res async in
+            XCTAssertEqual(res.status, .ok)
         })
     }
 }

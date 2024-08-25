@@ -5,7 +5,7 @@ struct UserController: RouteCollection {
     func boot(routes: any RoutesBuilder) throws {
         let users = routes.grouped("api", "users")
         users.post(use: index)
-        users.post(use: create)
+        users.post("create", use: create)
         users.post("register", use: register)
         users.post("token", use: token)
         users.post("change", use: change)
